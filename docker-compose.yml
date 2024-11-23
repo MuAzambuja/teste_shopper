@@ -1,0 +1,53 @@
+services:
+  backend:
+    build:
+      context: ./app-backend
+      dockerfile: Dockerfile.dev
+    volumes:
+      - ./app-backend:/app
+      - /app/node_modules
+    env_file:
+      - ./app-backend/.env
+    ports:
+      - "8080:8080"
+    container_name: backend-app
+    depends_on:
+      - postgres
+    networks:
+      - appNetwork
+
+  frontend:
+    build:
+      context: ./app-frontend
+      dockerfile: Dockerfile.dev
+    volumes:
+      - ./app-frontend:/app
+      - /app/node_modules
+    env_file:
+      - ./app-frontend/.env
+    ports:
+      - "80:80"
+    container_name: frontend-app
+    depends_on:
+      - postgres
+    networks:
+      - appNetwork
+
+
+  postgres:
+    container_name: shopper-pg
+    image: postgres
+    ports:      
+      - 5432:5432
+    environment:
+      POSTGRES_USER: docker
+      POSTGRES_PASSWORD: docker
+      POSTGRES_DB: shopper-db
+    volumes:
+      - ./.data/pg:/var/lib/postgresql/data
+    networks:
+      - appNetwork
+
+networks:
+  appNetwork:
+    driver: bridge

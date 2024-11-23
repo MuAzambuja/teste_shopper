@@ -1,0 +1,149 @@
+*{
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: Arial, sans-serif;
+  margin: 0;
+  padding: 0;
+  background-color: white;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  margin: 0;
+}
+
+.header{
+  width: 100%;
+  height: 100px;
+  background-color: white;
+}
+
+.header h1{
+  color: black;
+  font-family: Caveat;
+  font-size: 70px;
+  padding-left: 20px;
+}
+
+.center{
+  background-color: white;
+  width: 100%;
+  height: 73.2vh;
+  display: flex;
+  justify-content: space-around;
+  font-family: Roboto;
+  /*font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;*/
+}
+
+.destino{
+    background-color: white;
+    border-radius: 8px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    padding: 20px;
+    width: 100%;
+    max-width: 400px;
+    text-align: center;
+}
+
+.destino h1{
+  text-align: left;
+  font-size: 50px;
+  margin-bottom: 20px;
+  color: black;
+  margin-bottom: 50px;
+}
+
+.form-trip {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 20px; /* Espaço entre os inputs */
+}
+
+.div-inputs input {
+  width: 100%;
+  padding: 15px 20px;
+  font-size: 16px;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  background-color: #f9f9f9;
+  outline: none;
+  transition: background-color 0.3s ease;
+}
+
+/* Foco no input */
+.div-inputs input:focus {
+  border: 2px solid black;
+  background-color: #fff;
+}
+
+/* Ícones à esquerda do input (opcional) */
+.div-inputs input::before {
+  content: '';
+  position: absolute;
+  left: 10px;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 16px;
+  height: 16px;
+  background: url('path-to-your-icon.svg') no-repeat center center;
+  background-size: contain;
+}
+
+.btn-submit{
+  width: 130px;
+  height: 45px;
+  padding: 12px;
+  font-size: 15px;
+  font-weight: bold;
+  background-color: black;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.5s ease;
+}
+
+.btn-submit:hover{
+  background-color: #333;
+}
+
+.condutores{
+  background-color: rgb(158, 35, 35);
+  width: 400px;
+  height: auto;
+  text-align: center;
+}
+.mapaRotas{
+  background-color: rgb(31, 31, 148);
+  width: 550px;
+  height: auto;
+  text-align: center;
+}
+
+.footer{
+  width: 100%;
+  height: 100px;
+  background-color: black;
+  /*margin-top: auto;*/
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding-right: 20px;
+}
+
+.footer h1{
+  color: white;
+  font-family: Caveat;
+  font-size: 70px;
+  padding-left: 20px;
+
+}
+
+.footer p{
+  color: white;
+}
