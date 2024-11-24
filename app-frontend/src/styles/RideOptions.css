@@ -1,0 +1,138 @@
+/* Estilo geral da página */
+.ride-options-container {
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+    padding: 20px;
+    font-family: Arial, sans-serif;
+    background-color: #f4f4f9;
+    color: #333;
+    min-height: 100vh;
+  }
+  
+  /* Título da página */
+  .ride-options-title {
+    font-size: 24px;
+    font-weight: bold;
+    text-align: center;
+    color: #4a90e2;
+  }
+  
+  /* Seção do mapa */
+  .map-container {
+    height: 300px;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    background-color: #e0e0e0;
+    margin-bottom: 30px;
+    position: relative;
+  }
+  
+  /* Lista de motoristas */
+  .drivers-list {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+  }
+  
+  .driver-card {
+    background-color: white;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    padding: 15px;
+    box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.1);
+    transition: transform 0.2s;
+  }
+  
+  .driver-card:hover {
+    transform: translateY(-3px);
+  }
+  
+  .driver-card h3 {
+    font-size: 18px;
+    color: #4a90e2;
+    margin-bottom: 5px;
+  }
+  
+  .driver-card p {
+    margin: 5px 0;
+    font-size: 14px;
+    color: #555;
+  }
+  
+  .driver-card .driver-vehicle {
+    font-weight: bold;
+    color: #888;
+  }
+  
+  .driver-card .driver-review {
+    font-size: 12px;
+    color: #888;
+    margin-top: 5px;
+  }
+  
+  .driver-card .value {
+    font-size: 16px;
+    font-weight: bold;
+    color: #4a90e2;
+    margin-top: 10px;
+  }
+  
+  .driver-card .choose-btn {
+    background-color: #4a90e2;
+    color: white;
+    border: none;
+    padding: 10px;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+    width: 100%;
+    text-align: center;
+    margin-top: 15px;
+  }
+  
+  .driver-card .choose-btn:hover {
+    background-color: #357ab8;
+  }
+  
+  /* Seção de informações adicionais */
+  .info-section {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 20px;
+    font-size: 14px;
+  }
+  
+  .info-section p {
+    margin: 0;
+    color: #555;
+  }
+  
+  /* Responsividade */
+  @media (max-width: 768px) {
+    .ride-options-container {
+      padding: 10px;
+    }
+  
+    .map-container {
+      height: 250px;
+    }
+  
+    .driver-card {
+      padding: 10px;
+    }
+  
+    .driver-card h3 {
+      font-size: 16px;
+    }
+  
+    .driver-card p {
+      font-size: 12px;
+    }
+  
+    .driver-card .value {
+      font-size: 14px;
+    }
+  }
+  

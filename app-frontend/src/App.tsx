@@ -1,7 +1,28 @@
-import { useState } from 'react'
-import './App.css'
+/*import { useState } from 'react'
+import './App.css'*/
+/*import React from 'react';*/
+import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
+import RequestRide from './pages/RequestRide';
+import RideOptions from './pages/RideOptions';
+import RideHistory from './pages/RideHistory';
+import './styles/global.css';
 
-export default function App() {
+function App() {
+  return (
+    <Router>
+      <Routes>
+        <Route path="/" element={<RequestRide />} />
+        <Route path="/options" element={<RideOptions />} />
+        <Route path="/history" element={<RideHistory />} />
+      </Routes>
+    </Router>
+  );
+}
+
+export default App;
+
+
+/*export default function App() {
 
   const [origin, setOrigin] = useState('');
   const [destination, setDestination] = useState('');
@@ -18,7 +39,7 @@ export default function App() {
         <div className='destino'>
           <h1>Solicite uma viagem</h1>
 
-          <form className='form-trip' /*onSubmit={handleSubmit}*/>
+          <form className='form-trip' onSubmit={handleSubmit}>
             <div className='div-inputs'>
               <input 
                 type='text'
@@ -62,4 +83,4 @@ export default function App() {
       </div>
     </div>
   )
-}
+}*/
