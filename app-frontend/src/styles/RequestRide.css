@@ -8,6 +8,10 @@ body {
     margin: 0;
 }
 
+.form-container{
+    display: flex;
+  }
+
 .request-ride {
     background-color: #fff;
     padding: 20px;
@@ -19,8 +23,9 @@ body {
 
 h1 {
     margin-bottom: 20px;
-    font-size: 24px;
-    color: #333;
+    font-size: 25px;
+    color: black;
+    text-align: start;
 }
 
 .error {
@@ -29,18 +34,9 @@ h1 {
 }
 
 .input-group {
-    margin-bottom: 15px;
+    margin-top: 25px;
     position: relative;
 }
-
-/*.input-group .icon {
-    position: absolute;
-    left: 10px;
-    top: 50%;
-    transform: translateY(-50%);
-    font-size: 18px;
-    color: #999;
-}*/
 
 .input-group input {
     padding: 10px 15px;
@@ -50,6 +46,7 @@ h1 {
 }
 
 button {
+    margin-top: 25px;
     background-color: #000;
     color: #fff;
     padding: 10px 20px;
@@ -63,3 +60,17 @@ button {
 button:hover {
     background-color: #333;
 }
+
+.image-container {
+    flex: 1;
+    display: flex;
+    justify-content: center;
+    margin-left: 25px;
+  }
+  
+  .image-container img {
+    width: 90%;
+    max-width: 500px; /* Ajuste o tamanho da imagem */
+    height: 300px;
+    border-radius: 5px;
+  }

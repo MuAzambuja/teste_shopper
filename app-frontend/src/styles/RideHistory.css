@@ -1,103 +1,61 @@
-/* Estilo geral da página */
-.ride-history-container {
-    padding: 20px;
-    font-family: Arial, sans-serif;
-    background-color: #f9f9f9;
-    color: #333;
-    min-height: 100vh;
-  }
-  
-  /* Título da página */
-  .ride-history-title {
-    font-size: 24px;
-    font-weight: bold;
-    margin-bottom: 20px;
-    text-align: center;
-    color: #4a90e2;
-  }
-  
-  /* Formulário de filtros */
-  .filter-form {
-    display: flex;
-    flex-direction: column;
-    gap: 10px;
-    margin-bottom: 20px;
-  }
-  
-  .filter-form label {
-    font-weight: bold;
-    margin-bottom: 5px;
-  }
-  
-  .filter-form input,
-  .filter-form select,
-  .filter-form button {
-    padding: 10px;
-    font-size: 14px;
-    border: 1px solid #ddd;
-    border-radius: 4px;
-  }
-  
-  .filter-form button {
-    background-color: #4a90e2;
-    color: white;
-    border: none;
-    cursor: pointer;
-    transition: background-color 0.3s;
-  }
-  
-  .filter-form button:hover {
-    background-color: #357ab8;
-  }
-  
-  /* Lista de viagens */
-  .ride-history-list {
-    display: flex;
-    flex-direction: column;
-    gap: 15px;
-  }
-  
-  .ride-history-card {
-    background-color: white;
-    border: 1px solid #ddd;
-    border-radius: 8px;
-    padding: 15px;
-    box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.1);
-    transition: transform 0.2s;
-  }
-  
-  .ride-history-card:hover {
-    transform: translateY(-3px);
-  }
-  
-  .ride-history-card h3 {
-    font-size: 18px;
-    margin-bottom: 10px;
-    color: #4a90e2;
-  }
-  
-  .ride-history-card p {
-    margin: 5px 0;
-    font-size: 14px;
-    color: #555;
-  }
-  
-  /* Responsividade */
-  @media (max-width: 768px) {
-    .filter-form {
-      flex-direction: column;
-    }
-  
-    .ride-history-card {
-      padding: 10px;
-    }
-  
-    .ride-history-card h3 {
-      font-size: 16px;
-    }
-  
-    .ride-history-card p {
-      font-size: 12px;
-    }
-  }
-  
+.ride-history {
+  background-color: #fff;
+  padding: 20px;
+  border-radius: 8px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  text-align: center;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+}
+
+.ride-history h1 {
+  font-size: 24px;
+  margin-bottom: 40px;
+}
+
+.ride-history input {
+  width: 300px;
+  height: 40px;
+  padding: 0 10px;
+  font-size: 16px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  outline: none;
+  transition: border-color 0.3s;
+}
+
+.ride-history input:focus {
+  border-color: #000;
+}
+
+.ride-history button {
+  width: 100px;
+  margin-top: 25px;
+  background-color: #000;
+  color: #fff;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 4px;
+  font-size: 16px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+.ride-history button:hover {
+  background-color: #444;
+}
+
+.ride-history ul {
+  margin-top: 20px;
+  padding: 0;
+  list-style: none;
+  width: 100%;
+  max-width: 600px;
+}
+
+.ride-history li {
+  padding: 10px;
+  border-bottom: 1px solid #ddd;
+  font-size: 14px;
+}

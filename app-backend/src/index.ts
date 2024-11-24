@@ -27,15 +27,14 @@ dotenv.config();
 const app = express();
 const PORT = 8080;
 
-// Middleware para habilitar o CORS
 app.use(cors({
-  origin: 'http://localhost:80', // Substitua pela URL do frontend se necessário
-  methods: ['GET', 'POST'], // Métodos permitidos
-  allowedHeaders: ['Content-Type', 'Authorization'], // Cabeçalhos permitidos
+  origin: 'http://localhost:80', 
+  methods: ['GET', 'POST'], 
+  allowedHeaders: ['Content-Type', 'Authorization'],
 }));
 
-app.use(express.json()); // Middleware para tratar JSON
-app.use(rideRoutes); // Importa e utiliza as rotas
+app.use(express.json());
+app.use(rideRoutes);
 
 app.listen(PORT, () => {
   console.log(`Server rodando em http://localhost:${PORT}`);
