@@ -32,6 +32,7 @@ export const calculateRouteMiddleware = async (
     return res.status(200).json(result);
   } catch (error: any) {
     // Trata erros e retorna resposta adequada
+    console.error('Erro ao calcular rota:', error.message);  // Log de erro
     return res.status(500).json({
       error_code: 'ROUTE_CALCULATION_FAILED',
       error_description: error.message || 'Erro interno ao calcular rota.',
@@ -54,25 +55,72 @@ export const calculateRoute = async (origin: string, destination: string) => {
     key: googleMapsApiKey,
   };
 
-  const response = await axios.get(url, { params });
+  try {
+    const response = await axios.get(url, { params });
 
-  if (response.data.status !== 'OK') {
-    throw new Error(`Erro ao calcular rota: ${response.data.status}`);
+    // Log da resposta da API
+    console.log('Google Maps API Response:', response.data);
+
+    if (response.data.status !== 'OK') {
+      throw new Error(`Erro ao calcular rota: ${response.data.status}`);
+    }
+
+    const route = response.data.routes[0];
+    const legs = route.legs[0]; // Considera a primeira rota e percurso
+    return {
+      origin: {
+        latitude: legs.start_location.lat,
+        longitude: legs.start_location.lng,
+      },
+      destination: {
+        latitude: legs.end_location.lat,
+        longitude: legs.end_location.lng,
+      },
+      distance: legs.distance.value / 1000, // em km
+      duration: legs.duration.text, // em string
+      rawResponse: response.data,
+    };
+  } catch (error) {
+    console.error('Erro ao acessar a API do Google Maps:', error.message); // Log de erro
+    throw new Error('Erro ao acessar a API do Google Maps');
+  }
+};
+
+// Função para buscar coordenadas de um endereço
+export const getCoordinates = async (address: string) => {
+  const googleMapsApiKey = process.env.GOOGLE_MAPS_API_KEY;
+
+  if (!googleMapsApiKey) {
+    throw new Error('A chave da API do Google Maps não está configurada!');
   }
 
-  const route = response.data.routes[0];
-  const legs = route.legs[0]; // Considera a primeira rota e percurso
-  return {
-    origin: {
-      latitude: legs.start_location.lat,
-      longitude: legs.start_location.lng,
-    },
-    destination: {
-      latitude: legs.end_location.lat,
-      longitude: legs.end_location.lng,
-    },
-    distance: legs.distance.value / 1000, // em km
-    duration: legs.duration.text, // em string
-    rawResponse: response.data,
+  const url = `https://maps.googleapis.com/maps/api/geocode/json`;
+  const params = {
+    address,
+    key: googleMapsApiKey,
   };
+
+  try {
+    const response = await axios.get(url, { params });
+
+    // Log da resposta da API
+    console.log('Google Maps API Geocode Response:', response.data);
+
+    if (response.data.status !== 'OK') {
+      throw new Error(`Erro ao obter coordenadas: ${response.data.status}`);
+    }
+
+    const location = response.data.results[0]?.geometry?.location;
+    if (!location) {
+      throw new Error('Localização não encontrada para o endereço fornecido.');
+    }
+
+    return {
+      latitude: location.lat,
+      longitude: location.lng,
+    };
+  } catch (error) {
+    console.error('Erro ao acessar a API do Google Maps para geolocalização:', error.message); // Log de erro
+    throw new Error('Erro ao acessar a API do Google Maps para geolocalização');
+  }
 };

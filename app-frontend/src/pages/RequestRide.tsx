@@ -42,7 +42,7 @@ const RequestRide: React.FC = () => {
                         <input
                             type='text'
                             id="origin"
-                            placeholder='Rua conde de irajá, 85'
+                            placeholder='Informe o local'
                             value={origin}
                             onChange={(e) => setOrigin(e.target.value)}
                             required
@@ -54,7 +54,7 @@ const RequestRide: React.FC = () => {
                         <input
                             type='text'
                             id="destination"
-                            placeholder='Rua Garibaldi, 421'
+                            placeholder='Informe o destino'
                             value={destination}
                             onChange={(e) => setDestination(e.target.value)}
                             required
