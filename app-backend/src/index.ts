@@ -17,25 +17,27 @@ app.listen(PORT, () => {
 });
 */
 
-import express from 'express';
-import dotenv from 'dotenv';
-import cors from 'cors';
-import rideRoutes from './routes/rideRoutes';
-
-dotenv.config();
-
+const cors = require('cors');
+const express = require('express');
 const app = express();
-const PORT = 8080;
 
+// Configuração de CORS
 app.use(cors({
-  origin: 'http://localhost:80', 
-  methods: ['GET', 'POST'], 
-  allowedHeaders: ['Content-Type', 'Authorization'],
+  origin: 'http://localhost:80', // URL do frontend em desenvolvimento
+  methods: ['GET', 'POST', 'PATCH', 'DELETE'], // Métodos permitidos
+  allowedHeaders: ['Content-Type', 'Authorization'] // Cabeçalhos permitidos
 }));
 
+// Middleware para parsear JSON
 app.use(express.json());
-app.use(rideRoutes);
 
-app.listen(PORT, () => {
-  console.log(`Server rodando em http://localhost:${PORT}`);
+// Suas rotas aqui
+app.post('/ride/estimate', (req, res) => {
+  // Sua lógica de backend
+  res.send('Estimativa de viagem recebida');
+});
+
+// Inicie o servidor
+app.listen(8080, () => {
+  console.log("Servidor backend rodando na porta 8080");
 });
