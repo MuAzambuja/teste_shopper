@@ -17,3 +17,11 @@
   margin: 0;
   font-size: 14px;
 }
+
+@media screen and (max-width: 768px){
+  .footer p{
+    text-align: center;
+    margin-left: -30px;
+    font-size: 11px;
+  }
+}

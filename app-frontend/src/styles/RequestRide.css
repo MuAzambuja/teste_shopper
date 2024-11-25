@@ -74,3 +74,16 @@ button:hover {
     height: 300px;
     border-radius: 5px;
   }
+
+  @media screen and (max-width: 768px){
+    .request-ride{
+        margin-left: -20px;
+        margin-top: 80px;
+    }
+    .input-group{
+        width: 50px;
+    }
+    .image-container img{
+        display: none;
+    }
+  }

@@ -46,3 +46,14 @@
     margin-top: 0;
   }
   
+  @media screen and (max-width: 768px){
+    .header{
+      height: auto;
+      display: flex;
+      flex-wrap: wrap;
+      
+    }
+    .logo h1{
+      margin-right: 30px;
+    }
+  }

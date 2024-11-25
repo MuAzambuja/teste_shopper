@@ -17,27 +17,46 @@ app.listen(PORT, () => {
 });
 */
 
-const cors = require('cors');
+/*const cors = require('cors');
 const express = require('express');
 const app = express();
 
+app.use(cors({
+  origin: ['http://localhost:80', 'http://172.31.128.1:80', 'http://192.168.1.11:80'], 
+  methods: ['GET', 'POST', 'PATCH', 'DELETE'], 
+  allowedHeaders: ['Content-Type', 'Authorization'] 
+}));
+
+//app.use(cors());
+
+app.use(express.json());
+
+app.post('/ride/estimate', (req, res) => {
+  res.send('Estimativa de viagem recebida');
+});
+
+app.listen(8080, () => {
+  console.log("Servidor backend rodando na porta 8080");
+});*/
+require('dotenv').config();
+const cors = require('cors');
+const express = require('express');
+const app = express();
+const rideRoutes = require('./routes/rideRoutes');
+
 // Configuração de CORS
 app.use(cors({
-  origin: 'http://localhost:80', // URL do frontend em desenvolvimento
-  methods: ['GET', 'POST', 'PATCH', 'DELETE'], // Métodos permitidos
-  allowedHeaders: ['Content-Type', 'Authorization'] // Cabeçalhos permitidos
+  origin: ['http://localhost', 'http://172.31.128.1', 'http://192.168.1.11'], // URL do frontend
+  methods: ['GET', 'POST', 'PATCH', 'DELETE'],
+  allowedHeaders: ['Content-Type', 'Authorization']
 }));
 
 // Middleware para parsear JSON
 app.use(express.json());
 
-// Suas rotas aqui
-app.post('/ride/estimate', (req, res) => {
-  // Sua lógica de backend
-  res.send('Estimativa de viagem recebida');
-});
+// Usando as rotas
+app.use(rideRoutes);
 
-// Inicie o servidor
 app.listen(8080, () => {
   console.log("Servidor backend rodando na porta 8080");
 });

@@ -59,3 +59,13 @@
   border-bottom: 1px solid #ddd;
   font-size: 14px;
 }
+
+@media screen and (max-width: 768px){
+  .ride-history{
+    margin-left: -20px;
+    margin-top: 80px;
+  }
+  .ride-history input{
+    width: 220px;
+  }
+}
