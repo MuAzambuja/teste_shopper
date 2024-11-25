@@ -2,11 +2,14 @@ import React from "react";
 import { useLocation, useNavigate } from "react-router-dom";
 import MapWithRoute from "../components/MapWithRoute";
 import "../styles/RideOptions.css";
-import axios from "axios";
+import axios from "../services/api"
 
 const RideOptions: React.FC = () => {
   const { state } = useLocation();
   const navigate = useNavigate();
+
+  /*if (!state) { return <div>Dados não disponíveis</div>; }
+  const { origin, destination, options } = state;*/
 
   const handleChooseDriver = async (driver: any) => {
     try {

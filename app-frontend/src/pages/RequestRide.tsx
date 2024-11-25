@@ -12,6 +12,7 @@ const RequestRide: React.FC = () => {
 
     const handleSubmit = async (e: React.FormEvent) => {
         e.preventDefault();
+        setError('');
         try {
             const response = await axios.post('/ride/estimate', { customer_id: customerId, origin, destination });
             navigate('/options', { state: response.data });
