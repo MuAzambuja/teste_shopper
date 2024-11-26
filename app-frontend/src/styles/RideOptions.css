@@ -1,12 +1,142 @@
+/*
+.ride-options-container {
+  display: flex;
+  flex-direction: column;
+  padding: 20px;
+  font-family: Arial, sans-serif;
+  background-color: #f4f4f9;
+  color: #000; 
+  min-height: 100vh;
+}
+
+.ride-options-title {
+  font-size: 24px;
+  font-weight: bold;
+  text-align: center;
+  color: #000;
+  margin-bottom: 20px;
+}
+
+.ride-options-content {
+  display: flex;
+  gap: 20px;
+}
+
+.drivers-list {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.map-container {
+  flex: 1;
+  height: 500px;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  background-color: #e0e0e0;
+  position: relative;
+}
+
+.driver-card {
+  background-color: white;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  padding: 15px;
+  box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.1);
+  transition: transform 0.2s;
+}
+
+.driver-card:hover {
+  transform: translateY(-3px);
+}
+
+.driver-card h3 {
+  font-size: 18px;
+  color: #000; 
+  margin-bottom: 5px;
+}
+
+.driver-card p {
+  margin: 5px 0;
+  font-size: 14px;
+  color: #000; 
+}
+
+.driver-card .driver-vehicle {
+  font-weight: bold;
+  color: #000; 
+}
+
+.driver-card .driver-review {
+  font-size: 12px;
+  color: #000; 
+  margin-top: 5px;
+}
+
+.driver-card .value {
+  font-size: 16px;
+  font-weight: bold;
+  color: #000; 
+  margin-top: 10px;
+}
+
+.driver-card .choose-btn {
+  background-color: navy;
+  color: white;
+  border: none;
+  padding: 10px;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+  width: 100%;
+  text-align: center;
+  margin-top: 15px;
+}
+
+.driver-card .choose-btn:hover {
+  background-color: navy;
+}
+
+@media (max-width: 768px) {
+  .ride-options-container {
+    padding: 10px;
+  }
+
+  .ride-options-content {
+    flex-direction: column;
+  }
+
+  .map-container {
+    height: 250px;
+  }
+
+  .driver-card {
+    padding: 10px;
+  }
+
+  .driver-card h3 {
+    font-size: 16px;
+  }
+
+  .driver-card p {
+    font-size: 12px;
+  }
+
+  .driver-card .value {
+    font-size: 14px;
+  }
+}
+*/
+
 /* Estilos principais do contêiner */
 .ride-options-container {
   display: flex;
   flex-direction: column;
-  gap: 30px;
   padding: 20px;
   font-family: Arial, sans-serif;
   background-color: #f4f4f9;
-  color: #333;
+  color: #000;
   min-height: 100vh;
 }
 
@@ -15,24 +145,32 @@
   font-size: 24px;
   font-weight: bold;
   text-align: center;
-  color: #4a90e2;
+  color: #000;
+  margin-bottom: 20px;
 }
 
-/* Mapa */
-.map-container {
-  height: 300px;
-  border: 1px solid #ddd;
-  border-radius: 8px;
-  background-color: #e0e0e0;
-  margin-bottom: 30px;
-  position: relative;
+/* Contêiner de conteúdo */
+.ride-options-content {
+  display: flex;
+  gap: 20px;
 }
 
 /* Lista de motoristas */
 .drivers-list {
+  flex: 1;
   display: flex;
   flex-direction: column;
   gap: 20px;
+}
+
+/* Mapa */
+.map-container {
+  flex: 1;
+  height: 500px;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  background-color: #e0e0e0;
+  position: relative;
 }
 
 /* Cartão de motorista */
@@ -51,31 +189,31 @@
 
 .driver-card h3 {
   font-size: 18px;
-  color: #4a90e2;
+  color: #000;
   margin-bottom: 5px;
 }
 
 .driver-card p {
   margin: 5px 0;
   font-size: 14px;
-  color: #555;
+  color: #000;
 }
 
 .driver-card .driver-vehicle {
   font-weight: bold;
-  color: #888;
+  color: #000;
 }
 
 .driver-card .driver-review {
   font-size: 12px;
-  color: #888;
+  color: #000;
   margin-top: 5px;
 }
 
 .driver-card .value {
   font-size: 16px;
   font-weight: bold;
-  color: #4a90e2;
+  color: #000;
   margin-top: 10px;
 }
 
@@ -96,24 +234,14 @@
   background-color: #357ab8;
 }
 
-/* Seção de informações */
-.info-section {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  margin-top: 20px;
-  font-size: 14px;
-}
-
-.info-section p {
-  margin: 0;
-  color: #555;
-}
-
 /* Responsividade */
 @media (max-width: 768px) {
   .ride-options-container {
     padding: 10px;
+  }
+
+  .ride-options-content {
+    flex-direction: column;
   }
 
   .map-container {
